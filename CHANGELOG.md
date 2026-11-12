@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1 — 2026-11-13
+
+- Add the same-task raw-agent vs SCTG benchmark pilot and machine-readable results.
+- Add the speed card assets and link them from both READMEs.
+- Clarify that SCTG's value on small tasks is auditability, not wall-clock speed.
+
 ## 0.5.0 — 2026-11-13
 
 - Add multi-card, decision, rollback, and two-seat handoff examples.

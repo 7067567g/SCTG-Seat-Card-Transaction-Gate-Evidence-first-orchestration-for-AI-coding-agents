@@ -122,6 +122,12 @@ See [`docs/reproducibility.md`](docs/reproducibility.md) for the exact commands,
 what is deterministic, and what is not. CI runs `make check`, `make test`, and
 `make demo` on every push.
 
+## Benchmarks
+
+- [Raw agent vs SCTG: same-task pilot](docs/benchmarks/pilot-2026-11.md) —
+  SCTG added 25–97% wall-clock overhead on small tasks, while adding auditable
+  card/submission/gate/ledger artifacts.
+
 ## Status
 
 This repository is a distilled public reference, not a dump of internal run

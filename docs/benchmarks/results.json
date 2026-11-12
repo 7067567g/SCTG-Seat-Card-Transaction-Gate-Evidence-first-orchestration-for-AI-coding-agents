@@ -1,0 +1,87 @@
+{
+  "schema": "sctg/benchmark-pilot/v1",
+  "model": "deepseek/deepseek-flash",
+  "task_shape": "same seed repo, same prompt, raw OpenCode vs SCTG one-card wrapper",
+  "tasks": [
+    {
+      "task": "multiply",
+      "raw_trials_s": [
+        19.404,
+        28.175,
+        36.465
+      ],
+      "sctg_trials_s": [
+        26.175,
+        35.141,
+        37.203
+      ],
+      "raw_median_s": 28.175,
+      "sctg_median_s": 35.141,
+      "overhead_pct": 24.7,
+      "raw_hidden_pass": true,
+      "sctg_hidden_pass": true,
+      "sctg_gate_pass": true
+    },
+    {
+      "task": "bugfix",
+      "raw_trials_s": [
+        10.775,
+        15.545
+      ],
+      "sctg_trials_s": [
+        24.496,
+        27.253
+      ],
+      "raw_median_s": 13.16,
+      "sctg_median_s": 25.874,
+      "overhead_pct": 96.6,
+      "raw_hidden_pass": true,
+      "sctg_hidden_pass": true,
+      "sctg_gate_pass": true
+    },
+    {
+      "task": "refactor",
+      "raw_trials_s": [
+        14.44,
+        24.964
+      ],
+      "sctg_trials_s": [
+        27.31,
+        37.592
+      ],
+      "raw_median_s": 19.702,
+      "sctg_median_s": 32.451,
+      "overhead_pct": 64.7,
+      "raw_hidden_pass": true,
+      "sctg_hidden_pass": true,
+      "sctg_gate_pass": true
+    },
+    {
+      "task": "security",
+      "raw_trials_s": [
+        22.617,
+        26.429
+      ],
+      "sctg_trials_s": [
+        41.484,
+        49.716
+      ],
+      "raw_median_s": 24.523,
+      "sctg_median_s": 45.6,
+      "overhead_pct": 85.9,
+      "raw_hidden_pass": true,
+      "sctg_hidden_pass": true,
+      "sctg_gate_pass": true
+    }
+  ],
+  "overall": {
+    "raw_trials": 9,
+    "sctg_trials": 9,
+    "raw_median_s": 22.617,
+    "sctg_median_s": 35.141,
+    "overhead_pct": 55.4,
+    "raw_hidden_pass": true,
+    "sctg_hidden_pass": true,
+    "sctg_gate_pass": true
+  }
+}

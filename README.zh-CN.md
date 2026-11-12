@@ -99,6 +99,11 @@ SCTG 不宣称模型输出可复现。它宣称**事务可复现**：card、subm
 
 详见 [`docs/reproducibility.md`](docs/reproducibility.md)。CI 每次 push 都会跑 `make check`、`make test`、`make demo`。
 
+## 基准对比
+
+- [原始 Agent vs SCTG：同任务对比](docs/benchmarks/pilot-2026-11.md) —
+  小任务上 SCTG 增加 25–97% 的墙钟时间，但额外产生 card/submission/gate/ledger 审计产物。
+
 ## 状态
 
 本仓库是提炼后的公开参考，不是内部 run 数据转储。它来自一次成功的 Stage-2.5 参考运行：
