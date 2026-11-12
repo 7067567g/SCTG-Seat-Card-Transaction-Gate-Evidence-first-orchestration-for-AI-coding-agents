@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Secrets / local config
+.env
+.env.*
+*.local
+*.key
+*.pem
+
+# Run artifacts
+*.log
+sctg/ledger/*.jsonl
+sctg/submissions/
+sctg/gate-results/
+sctg/evidence/
+sctg/channels/
+sctg/tasks/
+sctg/gates/
+*.sqlite
+*.db
+
+# Dependencies / OS
+node_modules/
+.DS_Store
+Thumbs.db

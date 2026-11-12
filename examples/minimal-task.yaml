@@ -1,0 +1,14 @@
+id: T-001
+title: Add one sentence to docs/status.md
+seat: main
+inputs:
+  - docs/status.md
+write_scope:
+  - docs/status.md
+deliverable:
+  schema: kit/schemas/submission.schema.json
+  required: [task_id, card_hash, summary, status]
+gates: [g0_schema, g1_scope, g2_evidence, g3_command]
+on_pass: END
+on_fail: retry
+max_attempts: 1
