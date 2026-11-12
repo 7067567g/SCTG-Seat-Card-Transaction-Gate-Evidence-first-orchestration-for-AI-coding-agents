@@ -40,10 +40,22 @@ Three rules matter more than the tooling:
 
 ```text
 docs/                 Concepts, protocol, architecture, lessons, provenance
+docs/cases/           Public case studies from real reference runs
 kit/                  Reference SCTG host runner, gates, and submission schema
 examples/             Minimal task-card example
 scripts/check_repo.py Public-repo hygiene and secret-pattern check
 ```
+
+## Case studies
+
+- [Ten cards, one transaction layer](docs/cases/01-ten-card-shadow-pilot.md) —
+  the transaction layer runs, and a gate-green run still contains a semantic
+  defect.
+- [From PARTIAL to PASS](docs/cases/02-stage-2-governance.md) — preserve the
+  historical PARTIAL, add remediation, re-audit with evidence.
+- [Lite, adapter, and two seats](docs/cases/03-stage-2.5-lite-multi-seat.md) —
+  Lite mode, independent join, real CLI alignment, and why single-line is per
+  seat, not per run.
 
 ## Quick start
 
