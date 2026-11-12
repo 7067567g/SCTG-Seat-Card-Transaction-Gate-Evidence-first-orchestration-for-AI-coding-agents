@@ -5,7 +5,7 @@ PYTHON ?= python3
 
 check:
 > $(PYTHON) scripts/check_repo.py
-> $(PYTHON) -m py_compile kit/sctg.py kit/gates/*.py scripts/check_repo.py examples/minimal-run/run_demo.py tests/test_public_repo.py
+> $(PYTHON) -m compileall -q kit scripts tests examples
 
 test: check
 > $(PYTHON) -m pytest -q

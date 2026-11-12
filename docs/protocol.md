@@ -79,3 +79,17 @@ task_id, attempt, verdict, card_hash, submission_hash, gate_result
 ```
 
 Do not rewrite accepted rows. Corrections are new rows.
+
+
+## Schemas
+
+- [`gate-result.schema.json`](../kit/schemas/gate-result.schema.json)
+- [`decision-request.schema.json`](../kit/schemas/decision-request.schema.json)
+- [`decision-record.schema.json`](../kit/schemas/decision-record.schema.json)
+- [`ledger-event.schema.json`](../kit/schemas/ledger-event.schema.json)
+- [`handoff.schema.json`](../kit/schemas/handoff.schema.json)
+- [`join-result.schema.json`](../kit/schemas/join-result.schema.json)
+
+See also: [mode policy](mode-policy.md), [decision model](decision-model.md),
+[ledger](ledger.md), [versioning](versioning.md), [FAQ](faq.md),
+[glossary](glossary.md).

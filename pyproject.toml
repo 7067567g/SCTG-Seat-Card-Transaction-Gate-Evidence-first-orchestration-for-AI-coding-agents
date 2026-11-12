@@ -1,8 +1,17 @@
 [project]
 name = "sctg-reference"
-version = "0.2.0"
+version = "0.4.0"
 description = "Evidence-first orchestration for AI coding agents: task cards, gates, independent decisions, and auditable ledgers."
 readme = "README.md"
+authors = [{name = "SCTG contributors"}]
+keywords = ["ai-agents", "workflow", "orchestration", "evidence", "audit", "gates"]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
 requires-python = ">=3.11"
 license = {text = "Apache-2.0"}
 dependencies = [
@@ -12,6 +21,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidence-first-orchestration-for-AI-coding-agents"
+Changelog = "https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidence-first-orchestration-for-AI-coding-agents/blob/main/CHANGELOG.md"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

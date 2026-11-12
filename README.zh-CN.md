@@ -43,7 +43,13 @@ docs/environment.md   支持环境与依赖
 docs/reproducibility.md 确定性/非确定性说明
 docs/limitations.md   SCTG 不证明什么
 docs/security-model.md 信任边界与命令执行
-AGENTS.md             AI Agent 工作规则
+docs/mode-policy.md  Shadow / Lite / Full
+docs/decision-model.md 请求 -> 独立审批 -> replay
+docs/ledger.md       append-only 事件与验收
+docs/versioning.md   版本与发布
+docs/faq.md          常见问题
+docs/glossary.md     术语
+AGENTS.md            AI Agent 工作规则
 kit/                  参考 host runner、gates、submission schema
 examples/             最小任务卡 + 可运行端到端 demo
 tests/                公共仓库 smoke tests
@@ -98,6 +104,15 @@ SCTG 不宣称模型输出可复现。它宣称**事务可复现**：card、subm
 - 语义 Review 与 Gate 分离。
 - 模式切换必须有明确 scope、expiry 和 rollback 的 Decision。
 - 范围冲突不能靠“先跑了再说”解决。
+
+## 项目
+
+- [贡献指南](CONTRIBUTING.md)
+- [安全](SECURITY.md)
+- [变更日志](CHANGELOG.md)
+- [版本说明](docs/versioning.md)
+- [常见问题](docs/faq.md)
+- [术语](docs/glossary.md)
 
 ## 许可
 

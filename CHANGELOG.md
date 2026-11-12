@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — 2026-11-13
+
+- Add GateResult, DecisionRequest, DecisionRecord, LedgerEvent, Handoff, and
+  JoinResult schemas.
+- Add decision and ledger reference helpers.
+- Add mode-policy, decision-model, ledger, versioning, FAQ, and glossary docs.
+- Add negative tests for gates, decisions, ledger, and version sync.
+- Add community files and broaden the CI version matrix.
+- Keep published history and tags intact.
+
 ## 0.3.0 — 2026-11-13
 
 - Add English/Chinese README pair and Chinese quick start.

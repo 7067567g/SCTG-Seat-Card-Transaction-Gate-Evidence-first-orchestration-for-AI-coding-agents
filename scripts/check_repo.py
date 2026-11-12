@@ -32,6 +32,18 @@ REQUIRED = [
     "examples/minimal-task.yaml",
     "examples/minimal-run/run_demo.py",
     "tests/test_public_repo.py",
+    "tests/test_version.py",
+    "tests/test_decision.py",
+    "tests/test_ledger.py",
+    "tests/test_gates.py",
+    "CODE_OF_CONDUCT.md",
+    "CITATION.cff",
+    ".editorconfig",
+    ".github/pull_request_template.md",
+    ".github/CODEOWNERS",
+    ".github/dependabot.yml",
+    ".github/ISSUE_TEMPLATE/bug_report.md",
+    ".github/ISSUE_TEMPLATE/feature_request.md",
     "Makefile",
     "pyproject.toml",
     "CHANGELOG.md",
@@ -88,6 +100,14 @@ def main() -> int:
                 break
         if "node_modules" in text and p.suffix in {".json", ".yaml", ".yml"}:
             errors.append(f"vendored node_modules reference in {rel}")
+    try:
+        import tomllib
+        version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+        project_version = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+        if version != project_version:
+            errors.append(f"VERSION {version!r} != pyproject version {project_version!r}")
+    except Exception as exc:
+        errors.append(f"version consistency check failed: {exc}")
     link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     for p in files():
         if p.suffix != ".md":

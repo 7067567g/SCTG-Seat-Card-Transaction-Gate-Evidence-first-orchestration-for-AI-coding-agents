@@ -49,11 +49,19 @@ docs/environment.md   Supported Python/OS/dependencies
 docs/reproducibility.md Deterministic vs non-deterministic evidence
 docs/limitations.md   What SCTG does not prove
 docs/security-model.md Trust boundaries and command execution
+docs/mode-policy.md   Shadow / Lite / Full transitions
+docs/decision-model.md Request -> independent approval -> replay
+docs/ledger.md        Append-only event and acceptance model
+docs/versioning.md    Tags and release checklist
+docs/faq.md           Common questions
+docs/glossary.md      Terms
 AGENTS.md             Rules for AI coding agents working on this repo
 kit/                  Reference SCTG host runner, gates, and submission schema
 examples/             Minimal task card and runnable end-to-end demo
 tests/                Public repo smoke tests
 scripts/check_repo.py Hygiene, links, secret-pattern check
+kit/decision.py       Decision request/record/replay helper
+kit/ledger.py         Append-only ledger helper
 Makefile              check / test / demo / clean
 .github/workflows/ci.yml CI on push and pull request
 ```
@@ -121,6 +129,15 @@ that Full-mode orchestration is validated.
 - Semantic review is separate from gate evaluation.
 - Mode changes require an explicit, scoped, expiring decision with rollback.
 - Scope conflicts are not resolved by "just run it anyway".
+
+## Project
+
+- [Contributing](CONTRIBUTING.md)
+- [Security](SECURITY.md)
+- [Changelog](CHANGELOG.md)
+- [Versioning](docs/versioning.md)
+- [FAQ](docs/faq.md)
+- [Glossary](docs/glossary.md)
 
 ## License
 

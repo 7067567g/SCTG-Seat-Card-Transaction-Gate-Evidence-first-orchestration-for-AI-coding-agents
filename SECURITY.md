@@ -2,10 +2,17 @@
 
 This repository is a reference implementation, not a hosted service.
 
-Please do not open a public issue for a secret leak. If you find a credential,
-token, or private path committed here, contact the maintainer privately and
-include the file path and commit hash.
+## Reporting
 
-The reference kit executes commands declared in task submissions. Treat task
-cards and submissions as untrusted input, run them in an isolated workspace,
-and never give a production seat self-approval authority.
+Please use GitHub Security Advisories for private reports:
+
+https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidence-first-orchestration-for-AI-coding-agents/security/advisories/new
+
+Do not open a public issue for a secret leak, credential, token, or private path.
+Include the file path, commit hash, and a short reproduction.
+
+## Execution model
+
+`g3_command` executes submission-declared commands. Treat cards and submissions
+as untrusted input, run them in an isolated workspace, and do not give a
+production seat self-approval authority.
