@@ -41,9 +41,16 @@ Three rules matter more than the tooling:
 ```text
 docs/                 Concepts, protocol, architecture, lessons, provenance
 docs/cases/           Public case studies from real reference runs
+docs/quickstart.md    Runnable quick start
+docs/reproducibility.md Deterministic vs non-deterministic evidence
+docs/limitations.md   What SCTG does not prove
+docs/security-model.md Trust boundaries and command execution
 kit/                  Reference SCTG host runner, gates, and submission schema
-examples/             Minimal task-card example
-scripts/check_repo.py Public-repo hygiene and secret-pattern check
+examples/             Minimal task card and runnable end-to-end demo
+tests/                Public repo smoke tests
+scripts/check_repo.py Hygiene, links, secret-pattern check
+Makefile              check / test / demo / clean
+.github/workflows/ci.yml CI on push and pull request
 ```
 
 ## Case studies
@@ -63,13 +70,26 @@ scripts/check_repo.py Public-repo hygiene and secret-pattern check
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
+pip install pytest
 
-python3 kit/sctg.py --help
-python3 scripts/check_repo.py
+make check
+make test
+make demo
 ```
 
-See [`examples/README.md`](examples/README.md) for a minimal card, and
-[`docs/protocol.md`](docs/protocol.md) for the object model.
+`make demo` runs one complete transaction: card -> submission -> four gates ->
+ledger. See [`docs/quickstart.md`](docs/quickstart.md) for the step-by-step
+version, and [`docs/protocol.md`](docs/protocol.md) for the object model.
+
+## Reproducibility
+
+SCTG does not claim deterministic model output. It claims reproducible
+transactions: the card, submission, gate result, evidence hashes, and decision
+record can be replayed and audited.
+
+See [`docs/reproducibility.md`](docs/reproducibility.md) for the exact commands,
+what is deterministic, and what is not. CI runs `make check`, `make test`, and
+`make demo` on every push.
 
 ## Status
 

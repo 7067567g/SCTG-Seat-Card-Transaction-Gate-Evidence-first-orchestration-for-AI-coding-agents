@@ -30,6 +30,17 @@ REQUIRED = [
     "kit/gates/g2_evidence.py", "kit/gates/g3_command.py",
     "kit/schemas/submission.schema.json",
     "examples/minimal-task.yaml",
+    "examples/minimal-run/run_demo.py",
+    "tests/test_public_repo.py",
+    "Makefile",
+    "pyproject.toml",
+    "CHANGELOG.md",
+    "VERSION",
+    ".github/workflows/ci.yml",
+    "docs/quickstart.md",
+    "docs/reproducibility.md",
+    "docs/limitations.md",
+    "docs/security-model.md",
 ]
 SKIP_DIRS = {".git", "__pycache__", ".venv", "node_modules", ".pytest_cache"}
 TEXT_EXT = {".md", ".py", ".json", ".yaml", ".yml", ".txt", ".toml", ".cfg"}
@@ -74,6 +85,17 @@ def main() -> int:
                 break
         if "node_modules" in text and p.suffix in {".json", ".yaml", ".yml"}:
             errors.append(f"vendored node_modules reference in {rel}")
+    link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+    for p in files():
+        if p.suffix != ".md":
+            continue
+        text = p.read_text(encoding="utf-8")
+        for target in link_re.findall(text):
+            target = target.split("#", 1)[0].strip()
+            if not target or target.startswith(("http://", "https://", "mailto:")):
+                continue
+            if not (p.parent / target).resolve().exists():
+                errors.append(f"broken link in {p.relative_to(ROOT)}: {target}")
     for p in files():
         if p.suffix == ".py":
             try:
