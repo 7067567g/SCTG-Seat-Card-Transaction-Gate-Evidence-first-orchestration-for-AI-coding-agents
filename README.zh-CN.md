@@ -58,6 +58,12 @@ Makefile              check / test / demo / clean
 .github/workflows/ci.yml push / PR 自动检查
 ```
 
+## 速度卡片
+
+![SCTG 速度卡片](docs/assets/sctg-speed-card.png)
+
+从空仓库到公开 v0.5.0 参考：端到端 **27:08**（首次 commit 到 Release 25:35；活跃执行 19:10，共 32 轮）。
+
 ## 案例
 
 - [十张卡，一个事务层](docs/cases/01-ten-card-shadow-pilot.md)：Gate 全绿，仍可能有语义错误。

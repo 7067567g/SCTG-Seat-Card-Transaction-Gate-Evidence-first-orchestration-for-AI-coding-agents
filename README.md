@@ -66,6 +66,13 @@ Makefile              check / test / demo / clean
 .github/workflows/ci.yml CI on push and pull request
 ```
 
+## Speed card
+
+![SCTG speed card](docs/assets/sctg-speed-card.png)
+
+From an empty repository to a public v0.5.0 reference in **27:08** wall-clock
+(25:35 from first commit to Release; 19:10 active execution across 32 rounds).
+
 ## Case studies
 
 - [Ten cards, one transaction layer](docs/cases/01-ten-card-shadow-pilot.md) —
