@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse, hashlib, json, subprocess, sys, time, glob
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 import yaml
 
 def now() -> str:
@@ -81,8 +82,8 @@ def expand_write_scope(root: Path, scope: list[str]) -> list[Path]:
                 out.append(p)
     return sorted(set(out))
 
-def hash_write_scope(root: Path, scope: list[str]) -> dict:
-    h = {}
+def hash_write_scope(root: Path, scope: list[str]) -> dict[str, str | None]:
+    h: dict[str, str | None] = {}
     for p in expand_write_scope(root, scope):
         try:
             h[str(p.relative_to(root))] = sha256_file(p)
@@ -297,7 +298,7 @@ def metrics(run_dir: Path) -> int:
             return datetime.fromisoformat(s)
         except Exception:
             return None
-    tasks = {}
+    tasks: dict[tuple[Any, Any], dict[str, Any]] = {}
     for e in events:
         key = (e.get("task_id"), e.get("attempt"))
         if key == (None, None):

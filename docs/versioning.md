@@ -10,6 +10,7 @@ SCTG uses annotated tags and semantic versioning.
 | `v0.2.0` | public case studies |
 | `v0.3.0` | runnable, reproducible, bilingual |
 | `v0.4.0` | contract schemas, negative tests, community files |
+| `v0.5.0` | examples, toolchain, package entry point, benchmarks |
 
 Published tags are never moved or deleted.
 

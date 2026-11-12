@@ -1,15 +1,21 @@
-# Minimal example
+# Examples
 
-`minimal-task.yaml` shows the smallest useful task card.
+| Example | What it demonstrates |
+|---|---|
+| `minimal-run/` | one card through all four gates |
+| `multi-card/` | three sequential cards, each gated independently |
+| `decision/` | Decision request -> independent approval -> replay |
+| `rollback/` | Shadow -> Lite -> Shadow with an append-only ledger |
+| `two-seat-handoff/` | producer handoff + independent reviewer join |
 
-To render it, copy `kit/` into a run directory and use:
+All examples are self-contained and clean up their temporary files.
+
+Run them directly:
 
 ```bash
-python3 kit/sctg.py render <run-dir> T-001 --attempt 1
+python3 examples/minimal-run/run_demo.py
+python3 examples/multi-card/run_demo.py
+python3 examples/decision/run_demo.py
+python3 examples/rollback/run_demo.py
+python3 examples/two-seat-handoff/run_demo.py
 ```
-
-The rendered card gets a `card_hash`. The seat writes a submission that echoes
-that hash; the host then runs the configured gates.
-
-A gate failure is not something to "work around" in the submission. It is a
-signal to either fix the card/scope/evidence or stop and ask for a decision.

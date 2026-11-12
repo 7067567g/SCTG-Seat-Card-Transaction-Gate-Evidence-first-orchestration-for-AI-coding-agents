@@ -15,17 +15,39 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt pytest
+          python -m pip install -r requirements-dev.txt
       - name: Hygiene and compile
         run: make check
+      - name: Lint
+        run: make lint
+      - name: Type check
+        run: make typecheck
       - name: Tests
         run: make test
+      - name: Coverage
+        run: make coverage
       - name: End-to-end demo
         run: make demo
+      - name: Benchmarks
+        run: make bench
+
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+      - name: Dependency audit
+        run: make audit

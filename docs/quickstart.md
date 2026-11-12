@@ -13,6 +13,16 @@ make check
 
 This runs the public-repo hygiene check and compiles every Python file.
 
+Optional deeper checks:
+
+```bash
+make lint
+make typecheck
+make coverage
+make bench
+make audit
+```
+
 ## 2. Run the tests
 
 ```bash

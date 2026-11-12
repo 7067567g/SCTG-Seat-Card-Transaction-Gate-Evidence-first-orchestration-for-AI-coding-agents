@@ -31,3 +31,8 @@ sctg/gates/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/

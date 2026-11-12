@@ -1,6 +1,10 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "sctg-reference"
-version = "0.4.0"
+version = "0.5.0"
 description = "Evidence-first orchestration for AI coding agents: task cards, gates, independent decisions, and auditable ledgers."
 readme = "README.md"
 authors = [{name = "SCTG contributors"}]
@@ -22,6 +26,12 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
+[project.scripts]
+sctg-reference = "kit.sctg:main"
+
+[tool.setuptools]
+packages = ["kit", "kit.gates"]
+
 [project.urls]
 Homepage = "https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidence-first-orchestration-for-AI-coding-agents"
 Changelog = "https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidence-first-orchestration-for-AI-coding-agents/blob/main/CHANGELOG.md"
@@ -29,3 +39,9 @@ Changelog = "https://github.com/7067567g/SCTG-Seat-Card-Transaction-Gate-Evidenc
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.coverage.run]
+source = ["kit"]
+
+[tool.coverage.report]
+show_missing = true

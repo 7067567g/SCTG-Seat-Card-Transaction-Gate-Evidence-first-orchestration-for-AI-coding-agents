@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 — 2026-11-13
+
+- Add multi-card, decision, rollback, and two-seat handoff examples.
+- Add pinned dev toolchain, ruff/mypy configs, coverage, and pip-audit targets.
+- Add package metadata and `sctg-reference` console entry point.
+- Add deterministic gate micro-benchmarks and performance notes.
+- Add example smoke tests and pre-commit configuration.
+
 ## 0.4.0 — 2026-11-13
 
 - Add GateResult, DecisionRequest, DecisionRecord, LedgerEvent, Handoff, and

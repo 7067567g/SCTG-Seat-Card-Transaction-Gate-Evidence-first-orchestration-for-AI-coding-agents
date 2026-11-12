@@ -5,7 +5,7 @@ Instructions for AI coding agents working on this repository.
 ## Before changing anything
 
 1. Read `README.md`, `README.zh-CN.md`, and the relevant `docs/`.
-2. Run `make check`, `make test`, and `make demo`.
+2. Run `make check`, `make lint`, `make typecheck`, `make test`, and `make demo`.
 3. Keep changes small and scoped.
 
 ## Public-repo rules

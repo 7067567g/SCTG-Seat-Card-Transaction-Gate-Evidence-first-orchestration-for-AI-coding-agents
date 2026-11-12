@@ -77,6 +77,13 @@ Makefile              check / test / demo / clean
   Lite mode, independent join, real CLI alignment, and why single-line is per
   seat, not per run.
 
+## Examples
+
+- [`examples/minimal-run`](examples/minimal-run/run_demo.py) — one card through four gates.
+- [`examples/multi-card`](examples/multi-card/run_demo.py) — three sequential cards.
+- [`examples/decision`](examples/decision/run_demo.py) — request, approval, replay.
+- [`examples/rollback`](examples/rollback/run_demo.py) — Shadow → Lite → Shadow.
+- [`examples/two-seat-handoff`](examples/two-seat-handoff/run_demo.py) — producer + reviewer join.
 ## Quick start
 
 ```bash

@@ -64,6 +64,13 @@ Makefile              check / test / demo / clean
 - [从 PARTIAL 到 PASS](docs/cases/02-stage-2-governance.md)：保留历史 PARTIAL，用补救轮和重审赚 PASS。
 - [Lite、adapter 与两个 seat](docs/cases/03-stage-2.5-lite-multi-seat.md)：Lite 5 卡、独立 join、真实 CLI 对齐，以及“单线是每 seat 单卡”。
 
+## 示例
+
+- [`examples/minimal-run`](examples/minimal-run/run_demo.py) — 单卡四 gate。
+- [`examples/multi-card`](examples/multi-card/run_demo.py) — 三卡串行。
+- [`examples/decision`](examples/decision/run_demo.py) — 请求、审批、replay。
+- [`examples/rollback`](examples/rollback/run_demo.py) — Shadow → Lite → Shadow。
+- [`examples/two-seat-handoff`](examples/two-seat-handoff/run_demo.py) — producer + reviewer join。
 ## 快速开始
 
 ```bash

@@ -18,11 +18,12 @@ from __future__ import annotations
 
 import datetime as dt
 from pathlib import Path
+from typing import Any
 
 MODES = ("shadow", "lite", "full")
 DECISIONS = ("approved", "rejected")
 # 允许的升级路径：不允许 Shadow 直跳 Full
-TRANSITIONS = {
+TRANSITIONS: dict[tuple[str, str], dict[str, Any]] = {
     ("shadow", "lite"): {"requires": ["rollback", "decision"], "note": "需 Decision + 回滚方案；Lite 至少 1 个 run"},
     ("lite", "full"): {"requires": ["rollback", "decision", "lite_run_evidence"], "note": "需独立 Decision + 回滚 + Lite 实跑证据"},
     ("shadow", "full"): {"requires": [], "forbidden": True, "note": "禁止由 Shadow 直跳 Full"},
@@ -53,7 +54,7 @@ def _ts(value) -> dt.datetime | None:
     return parsed if parsed.tzinfo else parsed.replace(tzinfo=dt.timezone.utc)
 
 
-def validate_request(req: dict, *, now: str) -> list[dict]:
+def validate_request(req: dict[str, Any], *, now: str) -> list[dict[str, Any]]:
     errors: list[dict] = []
 
     def err(code: str, detail: str) -> None:
@@ -78,9 +79,10 @@ def validate_request(req: dict, *, now: str) -> list[dict]:
         err("BINDING_MISSING", f"{req['id']}: object_hash must bind the reviewed version")
 
     expiry = _ts(req["expiry"])
+    now_ts = _ts(now) or dt.datetime.now(dt.timezone.utc)
     if expiry is None:
         err("EXPIRY_INVALID", f"{req['id']}: expiry must be an ISO timestamp")
-    elif expiry < _ts(now):
+    elif expiry < now_ts:
         err("EXPIRY_PAST", f"{req['id']}: expiry {req['expiry']} already passed")
 
     mode = req.get("mode_change")
@@ -98,7 +100,7 @@ def validate_request(req: dict, *, now: str) -> list[dict]:
     return errors
 
 
-def decide(req: dict, *, approver: str, choice: str, now: str, producer: str | None = None) -> tuple[dict | None, list[dict]]:
+def decide(req: dict[str, Any], *, approver: str, choice: str, now: str, producer: str | None = None) -> tuple[dict[str, Any] | None, list[dict[str, Any]]]:
     """MAIN 落 Decision Record。自审、越界选择、过期都在这里被挡。"""
     errors = validate_request(req, now=now)
     if errors:
@@ -115,7 +117,7 @@ def decide(req: dict, *, approver: str, choice: str, now: str, producer: str | N
     if choice not in option_ids:
         return None, [{"code": "CHOICE_INVALID", "detail": f"choice={choice!r} not in {option_ids}"}]
 
-    record = {
+    record: dict[str, Any] = {
         "schema": "sctg/decision-record/v1",
         "decision_id": f"D-{req['id']}",
         "request_id": req["id"],
@@ -136,14 +138,15 @@ def decide(req: dict, *, approver: str, choice: str, now: str, producer: str | N
     return record, []
 
 
-def is_authorized(record: dict, *, now: str, action_scope: str) -> tuple[bool, str]:
+def is_authorized(record: dict[str, Any], *, now: str, action_scope: str) -> tuple[bool, str]:
     """一条 Decision 能不能授权某个动作：要过状态、过期、scope 覆盖三关。"""
     if record.get("decision") != "approved":
         return False, "NOT_APPROVED"
     expiry = _ts(record.get("expiry"))
+    now_ts = _ts(now) or dt.datetime.now(dt.timezone.utc)
     if expiry is None:
         return False, "EXPIRY_INVALID"
-    if expiry < _ts(now):
+    if expiry < now_ts:
         return False, "EXPIRED"
     scope = record.get("scope") or []
     for item in scope:
@@ -154,7 +157,7 @@ def is_authorized(record: dict, *, now: str, action_scope: str) -> tuple[bool, s
     return False, "SCOPE_NOT_COVERED"
 
 
-def mode_policy() -> dict:
+def mode_policy() -> dict[str, Any]:
     """三种模式的门槛与回滚要求，写死在代码里，避免口头约定。"""
     return {
         "schema": "sctg/mode-policy/v1",
@@ -185,7 +188,7 @@ def mode_policy() -> dict:
     }
 
 
-def validate_record(record: dict, *, now: str) -> list[dict]:
+def validate_record(record: dict[str, Any], *, now: str) -> list[dict[str, Any]]:
     errors: list[dict] = []
 
     def err(code: str, detail: str) -> None:
