@@ -1,3 +1,5 @@
+**English** | [简体中文](README.zh-CN.md)
+
 # SCTG
 
 **Seat–Card–Transaction–Gate** — evidence-first orchestration for AI coding agents.
@@ -42,9 +44,12 @@ Three rules matter more than the tooling:
 docs/                 Concepts, protocol, architecture, lessons, provenance
 docs/cases/           Public case studies from real reference runs
 docs/quickstart.md    Runnable quick start
+docs/quickstart.zh-CN.md Chinese quick start
+docs/environment.md   Supported Python/OS/dependencies
 docs/reproducibility.md Deterministic vs non-deterministic evidence
 docs/limitations.md   What SCTG does not prove
 docs/security-model.md Trust boundaries and command execution
+AGENTS.md             Rules for AI coding agents working on this repo
 kit/                  Reference SCTG host runner, gates, and submission schema
 examples/             Minimal task card and runnable end-to-end demo
 tests/                Public repo smoke tests
@@ -79,7 +84,11 @@ make demo
 
 `make demo` runs one complete transaction: card -> submission -> four gates ->
 ledger. See [`docs/quickstart.md`](docs/quickstart.md) for the step-by-step
-version, and [`docs/protocol.md`](docs/protocol.md) for the object model.
+version, [`docs/quickstart.zh-CN.md`](docs/quickstart.zh-CN.md) for the Chinese
+quick start, [`docs/environment.md`](docs/environment.md) for supported
+environments, and [`docs/protocol.md`](docs/protocol.md) for the object model.
+
+If you are an AI coding agent, read [`AGENTS.md`](AGENTS.md) first.
 
 ## Reproducibility
 

@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
-    "README.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md",
+    "README.md", "README.zh-CN.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md",
     "requirements.txt", ".gitignore",
     "docs/concepts.md", "docs/protocol.md", "docs/architecture.md",
     "docs/lessons.md", "docs/provenance.md", "docs/status.md",
@@ -38,6 +38,9 @@ REQUIRED = [
     "VERSION",
     ".github/workflows/ci.yml",
     "docs/quickstart.md",
+    "docs/quickstart.zh-CN.md",
+    "docs/environment.md",
+    "AGENTS.md",
     "docs/reproducibility.md",
     "docs/limitations.md",
     "docs/security-model.md",
