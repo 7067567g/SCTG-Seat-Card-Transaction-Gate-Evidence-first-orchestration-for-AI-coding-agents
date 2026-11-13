@@ -19,6 +19,10 @@ Most agent workflows trust the chat transcript. SCTG trusts evidence.
 SCTG is not another agent framework or model. It is a **control pattern plus a
 small reference kit** that can sit on top of OpenRig, OpenCode, or a plain shell.
 
+## Overview
+
+![SCTG overview](docs/assets/sctg-overview.png)
+
 ## Core model
 
 ```text
@@ -65,13 +69,6 @@ kit/ledger.py         Append-only ledger helper
 Makefile              check / test / demo / clean
 .github/workflows/ci.yml CI on push and pull request
 ```
-
-## Speed card
-
-![SCTG speed card](docs/assets/sctg-speed-card.png)
-
-From an empty repository to a public v0.5.0 reference in **27:08** wall-clock
-(25:35 from first commit to Release; 19:10 active execution across 32 rounds).
 
 ## Case studies
 

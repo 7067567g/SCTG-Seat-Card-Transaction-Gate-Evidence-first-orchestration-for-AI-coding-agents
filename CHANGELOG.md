@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Replace the speed-card image with a standard `sctg-overview` card in both
+  READMEs; remove the old speed-card HTML/PNG assets.
+- Keep the v0.5.1 benchmark findings; only the presentation asset changed.
+
 ## 0.5.1 — 2026-11-13
 
 - Add the same-task raw-agent vs SCTG benchmark pilot and machine-readable results.

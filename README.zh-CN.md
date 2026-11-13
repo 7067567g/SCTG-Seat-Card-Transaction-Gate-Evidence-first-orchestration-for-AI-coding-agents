@@ -15,6 +15,10 @@ SCTG 把 Agent 的工作拆成显式、可审计的单元：任务卡定义范�
 
 SCTG 不是另一个 Agent 框架或模型。它是一套**控制模式 + 小型参考实现**，可以跑在 OpenRig、OpenCode 或普通 shell 之上。
 
+## 总览
+
+![SCTG 总览](docs/assets/sctg-overview.png)
+
 ## 核心模型
 
 ```text
@@ -57,12 +61,6 @@ scripts/check_repo.py 卫生、链接、secret 模式检查
 Makefile              check / test / demo / clean
 .github/workflows/ci.yml push / PR 自动检查
 ```
-
-## 速度卡片
-
-![SCTG 速度卡片](docs/assets/sctg-speed-card.png)
-
-从空仓库到公开 v0.5.0 参考：端到端 **27:08**（首次 commit 到 Release 25:35；活跃执行 19:10，共 32 轮）。
 
 ## 案例
 
